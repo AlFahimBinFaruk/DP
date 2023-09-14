@@ -1,20 +1,5 @@
 * https://atcoder.jp/contests/dp/tasks/dp_k
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-#define nl "\n"
-#define print(x) cout<<x<<nl
-#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-
-#ifndef ONLINE_JUDGE
-#include "../debug.h"
-#else
-#define debug(x)
-#endif
-/*--------------------------------------------------------
-                                    Code starts from here.
---------------------------------------------------------------------------------------*/
 const int N=1e5+5;
 int dp[2][N];
 int dfs(int t,int rem,int n,vector<int>&arr){
@@ -54,30 +39,9 @@ void solve(){
     if(res==1)print("First");
     else print("Second");
 }
-
-signed main(){
-    fastio();
-    int t=1;
-    while(t--)solve();
-}
 ```
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-#define nl "\n"
-#define print(x) cout<<x<<nl
-#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-
-#ifndef ONLINE_JUDGE
-#include "../debug.h"
-#else
-#define debug(x)
-#endif
-/*--------------------------------------------------------
-                                    Code starts from here.
---------------------------------------------------------------------------------------*/
 const int N=1e5+5;
 int dp[2][N];
 int dfs(int t,int rem,int n,vector<int>&arr){
@@ -108,11 +72,5 @@ void solve(){
     int res=dfs(1,k,n,arr);
     if(res==1)print("First");
     else print("Second");
-}
-
-signed main(){
-    fastio();
-    int t=1;
-    while(t--)solve();
 }
 ```

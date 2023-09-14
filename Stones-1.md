@@ -1,5 +1,7 @@
 * https://atcoder.jp/contests/dp/tasks/dp_k
 ```cpp
+// o-second player.
+// 1-first player.
 const int N=1e5+5;
 int dp[2][N];
 int dfs(int t,int rem,int n,vector<int>&arr){
@@ -76,6 +78,8 @@ void solve(){
 ```
 
 ```cpp
+//0-loose.
+//1-win.
 const int N=1e5+5;
 int dp[N];
 vector<int>arr;

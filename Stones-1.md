@@ -105,3 +105,27 @@ void solve(){
     else print("Second");
 }
 ```
+
+```cpp
+const int N=1e5+5;
+int dp[N];
+
+void solve(){
+    int n,k;cin>>n>>k;
+    vector<int>arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+
+    for(int i=1;i<=k;i++){
+        for(auto x:arr){
+            if(i-x>=0 and dp[i-x]==0){
+                dp[i]=1;
+            }
+        }
+    }
+    
+    if(dp[k])print("First");
+    else print("Second");
+}
+```

@@ -74,3 +74,34 @@ void solve(){
     else print("Second");
 }
 ```
+
+```cpp
+const int N=1e5+5;
+int dp[N];
+vector<int>arr;
+int dfs(int rem){
+    if(rem<arr[0]){
+        return 0;
+    }
+    if(dp[rem]!=-1)return dp[rem];
+    for(auto i:arr){
+        if(rem-i>=0 and !dfs(rem-i)){
+            return dp[rem]=1;
+        }
+    }
+    return dp[rem]=0;
+   
+}
+void solve(){
+    memset(dp,-1,sizeof(dp));
+
+    int n,k;cin>>n>>k;
+    arr.resize(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    
+    if(dfs(k))print("First");
+    else print("Second");
+}
+```

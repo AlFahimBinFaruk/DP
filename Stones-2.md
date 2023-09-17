@@ -38,3 +38,31 @@ void solve(){
     print(dfs(1,n));
 }
 ```
+
+```cpp
+const int N=1e4+5,mxn=1e9;
+int dp[N];
+vector<int>arr;
+int dfs(int rem){
+    if(rem<arr[0])return 0;
+    if(dp[rem]!=-1)return dp[rem];
+    int ans=0;
+    for(auto i:arr){
+        if(rem-i>=0){
+            ans=max(ans,rem-dfs(rem-i));
+        }
+    }
+    return dp[rem]=ans;
+}
+
+void solve(){
+    memset(dp,-1,sizeof(dp));
+    int n,k;cin>>n>>k;
+    arr.resize(k);
+    for(int i=0;i<k;i++){
+        cin>>arr[i];
+    }
+    print(dfs(n));
+}
+```
+

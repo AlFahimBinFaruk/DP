@@ -66,3 +66,23 @@ void solve(){
 }
 ```
 
+```cpp
+const int N=1e4+5,mxn=1e9;
+int dp[N];
+void solve(){
+    int n,k;cin>>n>>k;
+    vector<int>arr(k);
+    for(int i=0;i<k;i++){
+        cin>>arr[i];
+    }
+    for(int i=1;i<=n;i++){
+        for(auto item:arr){
+            if(i-item>=0){
+                dp[i]=max(dp[i],i-dp[i-item]);
+            }
+        }
+    }
+    print(dp[n]);
+}
+```
+

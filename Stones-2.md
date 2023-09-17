@@ -2,7 +2,8 @@
 ```cpp
 const int N=1e4+5,mxn=1e9;
 int dp[2][N];
-int dfs(int k,int t,int rem,vector<int>&arr){
+vector<int>arr;
+int dfs(int t,int rem){
     if(rem<arr[0])return 0;
     if(dp[t][rem]!=-1){
         return (dp[t][rem]);
@@ -10,27 +11,30 @@ int dfs(int k,int t,int rem,vector<int>&arr){
     
     if(t==1){
         int ans=0;
-        for(int i=k-1;i>=0;i--){
-            if(rem-arr[i]>=0){
-                ans=max(ans,dfs(k,0,rem-arr[i],arr)+arr[i]);
+        for(auto i:arr){
+            if(rem-i>=0){
+                ans=max(ans,dfs(0,rem-i)+i);
             }
         }
         return dp[t][rem]=ans;
     }else{
         int ans=mxn;
-        for(int i=k-1;i>=0;i--){
-            if(rem-arr[i]>=0){
-                ans=min(ans,dfs(k,1,rem-arr[i],arr));
+        for(auto i:arr){
+            if(rem-i>=0){
+                ans=min(ans,dfs(1,rem-i));
             }
         }
         return dp[t][rem]=ans;
     }
 }
+
 void solve(){
     memset(dp,-1,sizeof(dp));
     int n,k;cin>>n>>k;
-    vector<int>arr(k);
-    for(auto &i:arr)cin>>i;   
-    print(dfs(k,1,n,arr));
+    arr.resize(k);
+    for(int i=0;i<k;i++){
+        cin>>arr[i];
+    }
+    print(dfs(1,n));
 }
 ```
